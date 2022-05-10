@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Mascotas</title>
+  <!--Bootstrap y CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <script src="../js/script.js"></script>
+
+  <!--jquery-->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#enviar").click(function(){
+        $.get("https://www.themealdb.com/api/json/v1/1/categories.php",
+        function(data){
+          $.each(data.categories, function(i, item){
+            $("#categorias").append("<tr><td>"+item.idCategory+"</td><td>" +item.strCategory +
+              "</td><td><img src='"+item.strCategoryThumb+"'>"+
+                "</td><td>"+item.strCategoryDescription+"</td></tr>");
+          });
+        });
+      });
+    });
+  </script>
+
+</head>
+  <body>
+    <!--Header / Navbar-->
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-5 border-bottom bg-info">
+      <a href="#" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <img src="../imagenes/logoperro.png" width="50" height="50">Tienda de Mascotas
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../index.html" class="nav-link px-2 link-dark">Inicio</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Productos</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Contacto</a></li>
+          <li><a href="#" class="nav-link px-2 link-secondary bg-warning">Admin</a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-primary position-relative me-3">
+            <img src="../imagenes/icons/cart-shopping.svg" alt="Carrito"width="20px" height="20px"/> Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+              0
+              <span class="visually-hidden">Carrito</span>
+            </span>
+          </button>
+            <a class="dropdown-toggle me-3" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><img src="../imagenes/icons/circle-user.svg" alt="Carrito"width="30px" height="30px"/></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="#">Mi Cuenta</a></li>
+              <li><a class="dropdown-item" href="#">Panel de admin</a></li>
+            </ul>
+        </div>
+      </header>
+
+<main>
+  
+  <div class="container-fluid">
+    <div class="text-center">
+      <h1 class="display-4 fw-normalmb-5 mt-3">Api Categorias</h1>
+      <button type="button" class="btn btn-primary" id="enviar">Traer Datos</button>
+    </div>
+    <div class="row">
+      <table class="table" id="categorias">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--Footer-->
+    <footer class="bg-secondary text-white text-center">
+      <div class="container p-4">
+        <div class="row">
+
+          <!--Tienda-->
+          <div class="col-lg-5 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Tienda de Mascotas</h5>
+            <img src="../imagenes/footer/pata.png" alt="Logo" height="150px" width="150px">
+          </div>
+  
+          <!--Conocenos-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Conócenos</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="../workwithus.html" class="text-white">Trabaja Con Nosotros</a>
+              </li>
+              <li>
+                <a href="../terminos.html" class="text-white">Términos y Condiciones</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Contacto y Ayuda</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Política De Privacidad</a>
+              </li>
+            </ul>
+          </div>
+
+          <!--Redes Sociales-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4">Redes Sociales</h5>
+                <a href="#!"><img src="../imagenes/footer/tiktok.svg" alt="Tiktok" width="25px" height="25px"/></a>
+                <a href="#!"><img src="../imagenes/footer/instagram.svg" alt="Instagram" width="25px" height="25px"/></a>
+                <a href="#!"><img src="../imagenes/footer/twitter.svg" alt="Twitter" width="25px" height="25px"/></a>
+          </div>
+
+        </div>
+      </div>
+
+    </footer>
+
+</main>
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

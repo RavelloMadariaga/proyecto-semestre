@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Mascotas</title>
+  <!--Bootstrap y CSS-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/sing-up.css" rel="stylesheet">
+</head>
+  <body>
+    <!--Header / Navbar-->
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-5 header-color letra-header">
+      <a href="#" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 link-dark text-decoration-none">
+        &nbsp;&nbsp;&nbsp;Tienda de Mascotas<img src="imagenes/logoperro.png" width="50" height="50">
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Productos</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Contacto</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"></a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          <button type="button" class="btn carrito-color position-relative me-3">
+            <img src="imagenes/icons/cart-shopping.svg" alt="Carrito"width="20px" height="20px"/> Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill carrito-notification">
+              0
+              <span class="visually-hidden">Carrito</span>
+            </span>
+          </button>
+            <a class="dropdown-toggle me-3 cuenta-down" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><img src="imagenes/icons/user.png" alt="Carrito"width="30px" height="30px"/></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="sing-up.html">Mi Cuenta</a></li>
+              <li><a class="dropdown-item" href="admin/index.html">Panel de admin</a></li>
+            </ul>
+        </div>
+    </header>
+
+<main>
+  <body class="text-center fondo-productos">
+    
+    <main class="form-signin letra-header fondo-paginas">
+      <!--formulario-->
+      <form  name="formulario" onSubmit="return Validar('email','pwd')">
+        <img src="imagenes/logoperro.png" width="100" height="100">
+        <h1 class="h3 mb-3 fw-normal">Ingrese a su cuenta</h1>
+    
+        <div class="form-floating">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Correo</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" name="pwd" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Recordarme
+          </label>
+        </div>
+        <!--boton-->
+        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="Validar()">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Tienda de Mascotas 2022</p>
+      </form>
+    </main>
+    
+    
+        
+      </body>
+  <!--Footer-->
+  <footer class="text-white text-center footer-color letra-header" >
+    <div class="container p-4">
+      <div class="row">
+
+        <!--Tienda-->
+        <div class="col-lg-5 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase ">Tienda de Mascotas</h5>
+          <img src="imagenes/footer/pata.png" alt="Logo" height="150px" width="150px">
+        </div>
+
+        <!--Conocenos-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Conocenos</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="workwithus.html" class="text-white hover-underline-animation">Trabaja Con Nosotros</a>
+            </li>
+            <li>
+              <a href="terminos.html" class="text-white hover-underline-animation">Terminos y Condiciones</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white hover-underline-animation">Contacto y Ayuda</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white hover-underline-animation">Politica De Privacidad</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Redes Sociales-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Redes Sociales</h5>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/tt-logo.png" alt="Tiktok" width="25px" height="29px"/></a>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/ig-logo.png" alt="Instagram" width="25px" height="29px"/></a>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/tw-logo.png" alt="Twitter" width="25px" height="25px"/></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+</main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+      function Validar()
+       {
+        email=document.getElementById("floatingInput");
+        pwd=document.getElementById("floatingPassword");
+        if(email.value!="tienda@mascota.com")
+         {
+          alert("Email o Password incorrectas");
+          email.focus();
+          return false;
+         }
+        else
+         {
+          if(pwd.value!="123")
+           {
+            alert("Email o Password incorrectas");
+            pwd.focus();
+            return false;
+           }
+          else
+           {
+           
+          
+            window.location='admin/index.html?usuario='+email+'&pw='+pwd;
+            
+            return true;
+           }
+         }
+       }
+     </script>
+      
+  </body>
+</html>

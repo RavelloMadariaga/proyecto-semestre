@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Mascotas</title>
+  <!--Bootstrap y CSS-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/sing-up.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+  <body>
+    <!--Header / Navbar-->
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-5 header-color letra-header">
+      <a href="#" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 link-dark text-decoration-none">
+        &nbsp;&nbsp;&nbsp;Tienda de Mascotas<img src="imagenes/logoperro.png" width="50" height="50">
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Productos</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Contacto</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"></a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          <button type="button" class="btn carrito-color position-relative me-3">
+            <img src="imagenes/icons/cart-shopping.svg" alt="Carrito"width="20px" height="20px"/> Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill carrito-notification">
+              0
+              <span class="visually-hidden">Carrito</span>
+            </span>
+          </button>
+            <a class="dropdown-toggle me-3 cuenta-down" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><img src="imagenes/icons/user.png" alt="Carrito"width="30px" height="30px"/></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="sing-up.html">Mi Cuenta</a></li>
+              <li><a class="dropdown-item" href="admin/index.html">Panel de admin</a></li>
+            </ul>
+        </div>
+    </header>
+
+<main>
+  <body class="text-center fondo-productos">
+    
+    <div class="container">
+        <div class="py-5 text-center">
+          <img src="imagenes/logoperro.png" width="100" height="100">
+          <h2>Carrito de compra</h2>
+          <p class="lead">Estamos preparados para recibir tu pedido! Ingresa tus datos y elige tu metodo de pago preferido.</p>
+        </div>
+    
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-primary">Tu Carrito</span>
+              <span class="badge bg-primary rounded-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0 text-start">ARNÉS Y CORREA</h6>
+                  <small class="text-muted text-start">Arnés para gato/perro</small>
+                </div>
+                <span class="text-muted">$10.990</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0 text-start">Juguete Hueso</h6>
+                  <small class="text-muted text-start">Masticable para perro</small>
+                </div>
+                <span class="text-muted">$5.590</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0 text-start">Despacho</h6>
+                  <small class="text-muted text-start">Dentro de la region</small>
+                </div>
+                <span class="text-muted">$2.950</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (CLP$)</span>
+                <strong>$19.530</strong>
+              </li>
+            </ul>
+    
+            <form class="card p-2">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Codigo Promocional">
+                <button type="submit" class="btn btn-secondary">Canjear</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Dirección de envio</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Porfavor, ingrese su nombre.
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Porfavor, ingrese su apellido.
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="username" class="form-label">Usuario</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control" id="username" placeholder="Usuario" required>
+                  <div class="invalid-feedback">
+                      Porfavor, ingrese un nombre de usuario.
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="tu@correo.com">
+                  <div class="invalid-feedback">
+                    Porfavor, ingrese un correo valido.
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="address" class="form-label">Direccion</label>
+                  <input type="text" class="form-control" id="address" placeholder="Antonio Varas 666" required>
+                  <div class="invalid-feedback">
+                    Porfavor ingrese una Direccion.
+                  </div>
+                </div>
+    
+                <div class="col-md-5">
+                  <label for="region" class="form-label">Region</label>
+                  <select class="form-select" id="region" required>
+                    <option value="">Selecciona tu region</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una ciudad valida.
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <label for="provincia" class="form-label">Provincia</label>
+                  <select class="form-select" id="provincia" required>
+                    <option value="">Selecciona tu Provincia</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una provincia valida.
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="comuna" class="form-label">Comuna</label>
+                  <select class="form-select" id="comuna" required>
+                    <option value="">Selecciona tu Comuna</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una comuna valida.
+                  </div>
+                </div>
+  
+              <hr class="my-4">
+    
+              <h4 class="mb-3">Payment</h4>
+    
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                  <label class="form-check-label" for="credit">Tarjeta de Credito</label>
+                </div>
+                <div class="form-check">
+                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" for="debit">Tarjeta de Debito</label>
+                </div>
+              </div>
+    
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted">Nombre completo como sale en la tarjeta</small>
+                  <div class="invalid-feedback">
+                    Nombre de la tarjeta invalido
+                  </div>
+                </div>
+    
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">Numero de tarjeta</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                  <div class="invalid-feedback">
+                    Numero de tarjeta invalido
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">Expira</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="xx/xx" required>
+                  <div class="invalid-feedback">
+                    Fecha de expiracion invalida
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="xxx" required>
+                  <div class="invalid-feedback">
+                    Codigo de seguridad invalido
+                  </div>
+                </div>
+              </div>
+    
+              <hr class="my-4">
+    
+              <button type="button" class="w-100 btn btn-primary btn-lg" onclick="location.href='finalizado.html'">Comprar</button>
+            </form>
+
+            <div class="mb-5"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+        
+      </body>
+  <!--Footer-->
+  <footer class="text-white text-center footer-color letra-header">
+    <div class="container p-4">
+      <div class="row">
+
+        <!--Tienda-->
+        <div class="col-lg-5 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase ">Tienda de Mascotas</h5>
+          <img src="imagenes/footer/pata.png" alt="Logo" height="150px" width="150px">
+        </div>
+
+        <!--Conocenos-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Conocenos</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="workwithus.html" class="text-white hover-underline-animation">Trabaja Con Nosotros</a>
+            </li>
+            <li>
+              <a href="terminos.html" class="text-white hover-underline-animation">Terminos y Condiciones</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white hover-underline-animation">Contacto y Ayuda</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white hover-underline-animation">Politica De Privacidad</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Redes Sociales-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Redes Sociales</h5>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/tt-logo.png" alt="Tiktok" width="25px" height="29px"/></a>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/ig-logo.png" alt="Instagram" width="25px" height="29px"/></a>
+              <a href="#!" class="hover-underline-animation"><img src="imagenes/footer/tw-logo.png" alt="Twitter" width="25px" height="25px"/></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+</main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $.get("https://apis.digital.gob.cl/dpa/regiones", function (data) {
+          $.each(data, function (i, data) {
+              $("#region").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+          });
+      });
+
+      $("#region").change(function () {
+          $()
+          $("#provincia").empty();
+          $.get("https://apis.digital.gob.cl/dpa/regiones/" + $("#region").val() + "/provincias", function (data) {
+              $.each(data, function (i, data) {
+                  $("#provincia").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+              });
+          });
+      });
+
+      $("#provincia").change(function () {
+          $("#comuna").empty();
+          $.get("https://apis.digital.gob.cl/dpa/provincias/" + $("#provincia").val() + "/comunas", function (data) {
+              $.each(data, function (i, data) {
+                  $("#comuna").append("<option value='" + data.codigo + "'>" + data.nombre + "</option>");
+              });
+          });
+      });
+  </script>
+
+      
+  </body>
+</html>
