@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Mascotas</title>
+  <!--Bootstrap y CSS-->
+  <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'core/css/style.css' %}" rel="stylesheet">
+</head>
+  <body>
+    <!--Header / Navbar-->
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-5 header-color letra-header">
+      <a href="formulario.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 link-dark text-decoration-none">
+        &nbsp;&nbsp;&nbsp;Tienda de Mascotas<img src="{% static 'core/img/logoperro.png' %}" width="50" height="50">
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 link-secondary">Inicio</a></li>
+          <li><a href="/categorias" class="nav-link px-2 link-dark">Categorias</a></li>
+          <li><a href="/productos" class="nav-link px-2 link-dark">Productos</a></li>
+          <!-- <li><a href="#" class="nav-link px-2 link-dark">Contacto</a></li> 
+            <li><a href="#" class="nav-link px-2 link-dark"></a></li>-->
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          <button type="button" class="btn carrito-color position-relative me-3">
+            <img src="{% static 'core/img/icons/cart-shopping.svg' %}" alt="Carrito"width="20px" height="20px"/> Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill carrito-notification">
+              0
+              <span class="visually-hidden">Carrito</span>
+            </span>
+          </button>
+            <a class="dropdown-toggle me-3 cuenta-down" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><img src="{% static 'core/img/icons/user.png' %}" alt="Carrito"width="30px" height="30px"/></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="./log-in">Panel Admin</a></li>
+            </ul>
+        </div>
+    </header>

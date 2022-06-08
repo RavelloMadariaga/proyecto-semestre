@@ -1,0 +1,87 @@
+{% include "./header.html" %}
+{% include "./despachonoti.html" %}
+<!--Color card-->
+<style>
+.card-body{
+  background-color: #ff5470!important;
+}
+</style>
+<main>
+  {% load static %}
+    <!--Carrusel-->
+    <div id="carrusel-mascotas" class="carousel slide" data-bs-ride="carousel">
+    
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carrusel-mascotas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carrusel-mascotas" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carrusel-mascotas" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{% static 'core/img/carrusel/c2.jpg' %}" alt="Oferta 1">
+        </div>
+        <div class="carousel-item">
+          <img class="d-b lock w-100" src="{% static 'core/img/carrusel/c1.jpg' %}" alt="Oferta 2">
+        </div>
+        <div class="carousel-item">
+          <img class="d-b lock w-100" src="{% static 'core/img/carrusel/c3.jpg' %}" alt="Oferta 3">
+        </div>
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-mascotas" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carrusel-mascotas" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+      
+    </div>
+    
+    <!--Productos-->
+    <section>
+      <div class="text-center container py-5 fondo-productos">
+        <div class="mt-4 mb-5 letra-productos"><u>Nuestros Productos Destacados</u></div>
+        <div class="row">
+          <div class="card-group">
+            <div class="card">
+              <img src="{% static 'core/img/productos/correa.png' %}" class="card-img-top zoom" alt="Correas">
+              <div class="card-body">
+                <h5 class="card-title hover-underline-animation">Correas</h5>
+                <p class="card-text"><strong>¡Es una nueva moda única para pasear perros!</strong><br>
+                  Muchos dueños de perros se pierden la maravillosa experiencia de llevar a su perro a pasear porque creen que a su perro no le gustará. La verdad es que a algunos perros les encanta caminar. Ya sea que lleve a su perro a dar un paseo por el vecindario, al veterinario o al peluquero, un arnés les da a nuestros perros la capacidad de explorar el mundo de manera segura.</p>
+              </div>
+              <div class="card-footer">
+                
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'core/img/productos/placa.png' %}" class="card-img-top zoom" alt="...">
+              <div class="card-body">
+                <h5 class="card-title hover-underline-animation">Placas</h5>
+                <p class="card-text"><strong>Disfruta de la tranquilidad de saber que en caso de emergencia su collar lleva tu contacto</strong><br>
+                Pasea por tu barrio libremente, su collar posee un sistema de identificación para mascotas que proporciona a un smartphone con tecnología NFC la identidad de la mascota.</p>
+              </div>
+              <div class="card-footer">
+              </div>
+            </div>
+            <div class="card">
+              <img src="{% static 'core/img/productos/bandana.png' %}" class="card-img-top zoom" alt="Bandanas">
+              <div class="card-body">
+                <h5 class="card-title hover-underline-animation">Bandanas</h5>
+                <p class="card-text"><strong>¡Estas bandanas se convertirán en un artículo escencial para sus paseos!</strong><br>
+                Disfruta de la gran variedad de diseños que poseemos para estar siempre a la moda con nuestros fieles compañeros. Para todos los tamaños, siempre a la moda.</p>
+              </div>
+              <div class="card-footer">
+                
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn color-tarjeta me-2 letra-header" onclick="location.href='productos'"><img src="{% static 'core/img/icons/cart-plus.svg' %}" alt="Carrito"width="20px" height="20px"/> Comprar Ahora</i></button>
+        </div>
+        
+      </div>
+    </section>
+{% include "./footer.html" %}

@@ -1,0 +1,4 @@
+cx-oracle
+humanize
+django-filter
+pyparsing

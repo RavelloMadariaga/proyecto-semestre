@@ -1,0 +1,73 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+<link href="{% static 'core/css/producto-style.css' %}" rel="stylesheet">
+
+<main>
+    <div class="container">
+      <div class="col-lg-12 border p-4 bg-white mb-5 mt-5">
+          <div class="row m-0">
+              <div class="col-lg-4 left-side-product-box pb-3">
+                  <img src={{datos.producto.imgProducto}} class="border p-3">
+              </div>
+              <div class="col-lg-8">
+                  <div class="right-side-pro-detail border p-3 m-0">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <span>{{datos.producto.categoria}}</span>
+                              <p class="m-0 p-0">{{datos.producto.nombreProducto}}</p>
+                          </div>
+                          <div class="col-lg-12">
+                              <p class="m-0 p-0 price-pro"><b>${{datos.producto.precioProducto}}</b></p>
+                              <hr class="p-0 m-0">
+                          </div>
+                          <div class="col-lg-6 pt-2">
+                              <h5>Detalle</h5>
+                              <span>{{datos.producto.detalleProducto}}</span>
+                              
+                          </div>
+                          <div class="col-lg-6 pt-2">
+                            <h5>Caracteristicas</h5>
+                            {{datos.producto.caracProducto}}
+                            
+                        </div>
+                          <div class="col-lg-12">
+                            <hr class="m-0 pt-2 mt-2">
+                              <p class="tag-section"><img src="{% static 'core/img/icons/barcode-scan.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> SKU: </strong><i>{{datos.producto.skuProducto}}</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/barcode-scan.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Stock: </strong><i>{{datos.producto.stockProducto}}</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/brush.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Color: </strong><i>{{datos.producto.colorProducto}}</i></p>
+                              {% if datos.producto.despachoDomicilio %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Despacho a domicilio: </strong><i>Disponible (1 a 3 días hábiles)</i></p>
+                              {% else %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Despacho a domicilio: </strong><i>No Disponible</i></p>
+                              {% endif %}
+                              {% if datos.producto.retiroTienda %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Retiro en Tienda: </strong><i>Disponible (Retira hoy)</i></p>
+                              {% else %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Retiro en Tienda: </strong><i>No Disponible</i></p>
+                              {% endif %}
+                              <hr class="m-0 pt-0 mt-0">
+                          </div>
+  
+  
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <h5>Cantidad :</h5>
+                              <input type="number" class="form-control text-center" value="1">
+                            </div>
+                            
+                            <div class="col-lg-6 ">
+                              <h5><br></h5>
+                                <a href="/check-out" class="btn btn-success w-100">Comprar Ahora</a>
+                            </div>
+                        </div>
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+{% include "./footer.html" %}

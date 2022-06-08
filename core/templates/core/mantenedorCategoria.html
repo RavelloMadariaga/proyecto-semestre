@@ -1,0 +1,54 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+
+<div class="container letra-header">
+    <h1 style="text-align:center; ">mantenedor categorias</h1>
+    <ul>
+        <div class="row" style="padding-top: 5%;">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <h2>Nueva Categoria</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/mascotasadmin/registrarCategoria/" method="POST">{% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" maxlength="20" required>
+                            </div>
+        
+                            <div class="form-group">
+                             <button type="submit" class="btn btn-success btn-block">guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                <h2>Listado de Categorias</h2>
+                <div class="table-responsive py-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre Categoria</th>
+                               
+                                <th colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in datos.categoria %}
+                                <tr>
+                                    <td>{{p.idCategoria}}</td>
+                                    <td>{{p.nombreCategoria}}</td>
+                                    <td><a href="edicionCategoria/{{p.idCategoria}}" class="btn btn-info">Editar</a></td>
+                                    <td><a href="eliminarCategoria/{{p.idCategoria}}" class="btn btn-danger">Eliminar</a></td>
+                                </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </ul>
+
+</div>
+{% include "./footer.html" %}

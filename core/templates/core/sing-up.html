@@ -1,0 +1,79 @@
+{% include "./header.html" %}
+<link href="core/css/sing-up.css" rel="stylesheet">
+
+<main>
+  <body class="text-center fondo-productos">
+    
+    <main class="form-signin letra-header fondo-paginas">
+      <div class="alert alert-success" role="alert">
+        Usuario Prueba: tienda@mascotas.com PASSWORD: 123
+      </div>
+      <!--formulario-->
+      {% load static %}
+      <form  name="formulario" onSubmit="return Validar('email','pwd')">
+        <img src="{% static 'core/img/logoperro.png' %}" width="100" height="100">
+        <h1 class="h3 mb-3 fw-normal">Ingrese a su cuenta</h1>
+    
+        <div class="form-floating">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Correo</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" name="pwd" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Recordarme
+          </label>
+        </div>
+        <!--boton-->
+        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="Validar()">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Tienda de Mascotas 2022</p>
+        
+
+      </form>
+    
+    
+        
+      </body>
+
+{% include "./footer.html" %}
+      
+
+
+    <script src="core/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+      function Validar()
+       {
+        email=document.getElementById("floatingInput");
+        pwd=document.getElementById("floatingPassword");
+        if(email.value!="tienda@mascotas.com")
+         {
+          alert("Email o Password incorrectas");
+          email.focus();
+          return false;
+         }
+        else
+         {
+          if(pwd.value!="123")
+           {
+            alert("Email o Password incorrectas");
+            pwd.focus();
+            return false;
+           }
+          else
+           {
+           
+          
+            window.location='mascotasadmin/panel?logeo-correcto';
+            
+            return true;
+           }
+         }
+       }
+     </script>
+      
+  </body>
+</html>

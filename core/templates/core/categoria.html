@@ -1,0 +1,29 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+<section>
+    <div class="text-center container py-5 fondo-productos">
+      <div class="mt-4 mb-5 letra-productos"><u>Nuestros Productos Destacados</u></div>
+      <div class="row">
+        <div class="card-group">
+            {% for cat in datos.producto %}
+          <div class="card">
+            <img src={{cat.imgProducto}} class="card-img-top zoom" alt="Correas">
+            <div class="card-body">
+              <h5 class="card-title hover-underline-animation">{{datos.producto.nombreProducto}}</h5>
+              <p class="card-text"><strong>{{datos.producto.microdetalleProducto}}</strong><br>
+                Muchos dueños de perros se pierden la maravillosa experiencia de llevar a su perro a pasear porque creen que a su perro no le gustará. La verdad es que a algunos perros les encanta caminar. Ya sea que lleve a su perro a dar un paseo por el vecindario, al veterinario o al peluquero, un arnés les da a nuestros perros la capacidad de explorar el mundo de manera segura.</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn color-tarjeta me-2 letra-header" onclick="location.href='productos/correas.html'"><img src="{% static 'core/img/icons/cart-plus.svg' %}" alt="Carrito"width="20px" height="20px"/> Comprar</i></button>
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% include "./footer.html" %}

@@ -1,0 +1,103 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+    <div class="container letra-header">
+        <h1 style="text-align: center;">mantenedor Productos</h1>
+        <ul>
+            <div class="row" style="padding-top: 5%;">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center">
+                    <h2>Gestion productos</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/mascotasadmin/registrarProducto/" method="POST">{% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" maxlength="20" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="txtUrlproducto" name="txtUrlproducto" class="form-control" placeholder="Url imagen" maxlength="500" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="numPrecio" name="numPrecio" class="form-control" placeholder="Precio" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="txtDetalleCorto" name="txtDetalleCorto" class="form-control" placeholder="Detalle corto" maxlength="1500" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="txtDetalle" name="txtDetalle" class="form-control" placeholder="Detalle" maxlength="1500" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="txtCaracteristicas" name="txtCaracteristicas" class="form-control" placeholder="Caracteristicas" maxlength="1500" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="numSku" name="numSku" class="form-control" placeholder="Sku producto" maxlength="20" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" id="numStock" name="numStock" class="form-control" placeholder="Stock" required>
+                                </div>
+                                <div class="form-group pt-2">
+                                    <select class="custom-select" aria-label="Default select example" name="txtColor">
+                                        <option selected>Seleccione Color</option>
+                                        {% for color in datos.colorLista %}
+                                            <option value={{color.idColor}}>{{color.nombreColor}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group pt-2">
+                                    <select class="custom-select" aria-label="Default select example" name="idCategoria">
+                                        <option selected>Seleccione Categoria</option>
+                                        {% for c in datos.categorias %}
+                                            <option value={{c.idCategoria}}>{{c.nombreCategoria}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group pt-2">
+                                    <label for="RetiroTienda">
+                                        <input type="checkbox" name="opcionRetiro" value="RetiroTienda" id="RetiroTienda" checked> Retiro en tienda
+                                    </label>
+                                    <div class="pt-2 pb-2"></div>
+                                    <label for="Despacho">
+                                        <input type="checkbox" name="opcionDespacho" value="Despacho" id="Despacho" checked> Despacho a domicilio
+                                    </label>                                
+                                </div>
+                                <div class="form-group pt-2">
+                                 <button type="submit" class="btn btn-success btn-block"><div class="letra-header">guardar</div></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 text-center">
+                    <h2>Listado de productos</h2>
+                    <div class="table-responsive py-3">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre producto</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Categoria</th>
+                                    <th colspan="2">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in datos.productos %}
+                                    <tr>
+                                        <td>{{p.idProducto}}</td>
+                                        <td>{{p.nombreProducto}}</td>
+                                        <td>{{p.precioProducto}}</td>
+                                        <td>{{p.stockProducto}}</td>
+                                        <td>{{p.categoria}}</td>
+                                        <td><a href="edicionProducto/{{p.idProducto}}" class="btn btn-info">Editar</a></td>
+                                        <td><a href="eliminarProducto/{{p.idProducto}}" class="btn btn-danger">Eliminar</a></td>
+                                    </tr>
+                                {% endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </ul>
+
+    </div>
+{% include "./footer.html" %}

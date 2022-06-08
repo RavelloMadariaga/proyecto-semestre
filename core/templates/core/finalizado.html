@@ -1,0 +1,55 @@
+{% include "./header.html" %}
+{% load static %}
+<link href="{% static 'core/css/finalizado.css' %}" rel="stylesheet">
+<main>
+
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <div class="col-md-5 p-lg-5 mx-auto">
+
+      <div class="p-3 pb-md-4 mx-auto text-center letra-header">
+        <h1 class="display-4 fw-normal pb-3">Gracias por tu pedido</h1>
+        <p class="fs-5 text-muted">Recibimos contentos tu pedido, pronto tendras actualizaciones sobre el ten tu correo!</p>
+      </div>
+      
+      <body class="text-center fondo-productos">
+
+        <div class="container d-flex justify-content-center align-items-center">
+        <div class="progresses letra-header pb-5">
+    
+    
+          <div class="steps">
+            <span><i class="fa fa-check"></i>Compra</span>
+          </div>
+    
+          <span class="line"></span>
+    
+          <div class="steps-no">
+            <span><i class="fa fa-check"></i>Confirmado</span>
+          </div>
+    
+    
+          <span class="line"></span>
+    
+          <div class="steps-no">
+            <span class="font-weight-bold">Enviado</span>
+          </div>
+           
+         </div>    
+         
+        
+      </div>
+      <button type="button" class="btn carrito-color position-relative me-3" onclick="location.href='/'">
+        <img src="{% static 'core/img/icons/cart-shopping.svg' %}" alt="Carrito"width="20px" height="20px"/> Continuar comprando
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill carrito-notification">
+          +1!
+      </button>
+    </div>
+  </div>
+  </div>
+
+  
+    
+    
+        
+      </body>
+      {% include "./footer.html" %}

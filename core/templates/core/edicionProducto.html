@@ -1,0 +1,70 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+    <div class="container">
+        <div class="col-md-4 offset-md-4 text-center pb-3">
+            <div class="letra-header pt-3 pb-3"><h2>Edicion productos</h2></div>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/mascotasadmin/editarProducto/" method="POST">{% csrf_token %}
+                        <div class="form-group pt-2">
+                            <input type="text" id="idProducto" name="idProducto" value="{{datos.producto.idProducto}}" class="form-control"  maxlength="20" readonly >
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="txtNombre" name="txtNombre" value="{{datos.producto.nombreProducto}}" class="form-control"  maxlength="20" required>
+                        </div>
+                        <div class="form-group pt-2"> 
+                            <input type="text" id="txtUrlproducto" name="txtUrlproducto" value="{{datos.producto.imgProducto}}" class="form-control" placeholder="Url imagen" maxlength="500" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="numPrecio" name="numPrecio" value="{{datos.producto.precioProducto}}" class="form-control" placeholder="Precio" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="txtDetalleCorto" name="txtDetalleCorto" value="{{datos.producto.microdetalleProducto}}" class="form-control" placeholder="Detalle corto" maxlength="1500" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="txtDetalle" name="txtDetalle" value="{{datos.producto.detalleProducto}}" class="form-control" placeholder="Detalle" maxlength="1500" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="txtCaracteristicas" name="txtCaracteristicas" value="{{datos.producto.caracProducto}}" class="form-control" placeholder="Caracteristicas" maxlength="1500" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="text" id="numSku" name="numSku" value="{{datos.producto.skuProducto}}" class="form-control" placeholder="Sku producto" maxlength="20" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <input type="number" id="numStock" name="numStock" value="{{datos.producto.stockProducto}}" class="form-control" placeholder="Stock" required>
+                        </div>
+                        <div class="form-group pt-2">
+                            <select class="custom-select" aria-label="Default select example" name="idColor" value="1">
+                                <option selected>Seleccione Color</option>
+                                {% for color in datos.colorLista %}
+                                    <option value={{color.idColor}} {% if color.idColor is datos.producto.color.idColor %} selected {% endif %}> {{color.nombreColor}}</option>
+                                {% endfor %}
+                            </select><!--59:41-->
+                        </div>
+                        <div class="form-group pt-2">
+                            <select class="custom-select" aria-label="Default select example" name="idCategoria" value="1">
+                                <option selected>Seleccione Categoria</option>
+                                {% for c in datos.categoriaLista %}
+                                    <option value={{c.idCategoria}} {% if c.idCategoria is datos.producto.categoria.idCategoria  %} selected {% endif %}> {{c.nombreCategoria}}</option>
+                                {% endfor %}
+                            </select><!--59:41-->
+                        </div>
+                        <div class="form-group pt-2">
+                            <label for="RetiroTienda">
+                                <input type="checkbox" name="opcionRetiro" value="RetiroTienda" id="RetiroTienda" checked> Retiro en tienda
+                            </label>
+                            <div class="pt-2 pb-2"></div>
+                            <label for="Despacho">
+                                <input type="checkbox" name="opcionDespacho" value="Despacho" id="Despacho" checked> Despacho a domicilio
+                            </label>                                
+                        </div>
+                        <div class="form-group pt-2">
+                         <button type="submit" class="btn btn-success btn-block"><div class="letra-header">guardar</div></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include "./footer.html" %}
