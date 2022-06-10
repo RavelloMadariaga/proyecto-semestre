@@ -4,7 +4,7 @@ from django.db import models
 
 class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True, verbose_name='ID Categoria')
-    nombreCategoria = models.CharField(max_length=50,verbose_name="Nombre de la Categoria")
+    nombreCategoria = models.CharField(max_length=150,verbose_name="Nombre de la Categoria")
     rutaFoto = models.CharField(max_length=150,blank=True,verbose_name='RutaFoto')
     detalleCategoria = models.CharField(max_length=1500,blank=True,verbose_name='Detalle')
 
@@ -30,7 +30,7 @@ class Producto(models.Model):
     skuProducto = models.CharField(max_length=20,verbose_name='Sku')
     stockProducto = models.PositiveIntegerField(verbose_name='Stock')
     colorProducto = models.ForeignKey(Colores,on_delete=models.CASCADE)
-    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)   
     retiroTienda = models.BooleanField(null=True, blank=True)
     despachoDomicilio = models.BooleanField(null=True, blank=True)
 

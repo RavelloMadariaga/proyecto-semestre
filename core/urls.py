@@ -23,4 +23,5 @@ urlpatterns = [
     path('log-in',views.logeo),
     path('check-out',views.checkout),
     path('fin-compra',views.fincompra),
+    path('workwithus',views.workwithus),
 ]

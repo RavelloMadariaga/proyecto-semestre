@@ -36,33 +36,36 @@ def mantenedor(request):
     return render(request, 'core/mantenedorProductos.html', {"datos":datos})
 
 def registrarProducto(request):
-    nombreProducto=request.POST['txtNombre']
-    imgProducto=request.POST['txtUrlproducto']
-    precioProducto=request.POST['numPrecio']
-    microdetalleProducto=request.POST['txtDetalleCorto']
-    detalleProducto=request.POST['txtDetalle']
-    caracProducto=request.POST['txtCaracteristicas']
-    skuProducto=request.POST['numSku']
-    stockProducto=request.POST['numStock']
-    colorProducto=request.POST['txtColor']
-    idCategoria=request.POST['idCategoria']
-    optDespacho=request.POST['opcionDespacho']
-    optTiendaDomicilio=request.POST['opcionRetiro']
+    optTiendaDomicilio = ''
+    optDespacho = ''
+    data = request.POST
+    nombreProducto=data['txtNombre']
+    imgProducto=data['txtUrlproducto']
+    precioProducto=data['numPrecio']
+    microdetalleProducto=data['txtDetalleCorto']
+    detalleProducto=data['txtDetalle']
+    caracProducto=data['txtCaracteristicas']
+    skuProducto=data['numSku']
+    stockProducto=data['numStock']
+    colorProducto=data['txtColor']
+    idCategoria=data['idCategoria']
+    optTiendaDomicilio=data['RetiroTienda'] 
+    optDespacho=data['Despacho']
     
 
     retiroTienda = False
     despachoDomicilio = False
 
     
-    if optTiendaDomicilio == 'opcionRetiro':
+    if optTiendaDomicilio == '1':
         retiroTienda = True
-    else:
+    else:   
         retiroTienda = False
 
-    if optDespacho == 'opcionDespacho':
+    if optDespacho == '1':
         despachoDomicilio = True
-    else:
-         despachoDomicilio = False
+    else:   
+        despachoDomicilio = False
 
     objCategoria = Categoria()
     objCategoria.idCategoria = int(idCategoria)
@@ -97,6 +100,8 @@ def edicionProducto(request, idProducto):
     return render(request, "core/edicionProducto.html", {"datos":datos})
 
 def editarProducto(request):
+    optTiendaDomicilio = ''
+    optDespacho = ''
     idproducto=request.POST['idProducto']
     nombreProducto=request.POST['txtNombre']
     imgProducto=request.POST['txtUrlproducto']
@@ -108,19 +113,19 @@ def editarProducto(request):
     stockProducto=request.POST['numStock']
     idColor=request.POST['idColor']
     idCategoria=request.POST['idCategoria']
-    optTiendaDomicilio=request.POST['opcionRetiro']
-    optDespacho=request.POST['opcionDespacho']
+    optTiendaDomicilio=request.POST['RetiroTienda']
+    optDespacho=request.POST['Despacho']
 
     retiroTienda = False
     despachoDomicilio = False
 
-    
-    if optTiendaDomicilio == 'RetiroTienda':
+
+    if optTiendaDomicilio == '1':
         retiroTienda = True
-    else:
+    else:   
         retiroTienda = False
 
-    if optDespacho == 'DespachoDomicilio':
+    if optDespacho == '1':
         despachoDomicilio = True
     else:
          despachoDomicilio = False
@@ -238,6 +243,9 @@ def checkout(request):
 
 def fincompra(request):
     return render(request,'core/finalizado.html')
+
+def workwithus(request):
+    return render(request,'core/workwithus.html')
 
 def paneladmin(request):
     productos = Producto.objects.all()

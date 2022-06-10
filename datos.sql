@@ -4,6 +4,7 @@ Insert into C##PRUEBA.CORE_CATEGORIA (IDCATEGORIA,NOMBRECATEGORIA,DETALLECATEGOR
 Insert into C##PRUEBA.CORE_CATEGORIA (IDCATEGORIA,NOMBRECATEGORIA,DETALLECATEGORIA,RUTAFOTO) values ('4','Comida para Gatos','Alimenta a tu felino regalón con la mejor comida de calidad para una larga vida saludable junto a él','https://i.postimg.cc/SND40F44/alimento-gato.png');
 Insert into C##PRUEBA.CORE_CATEGORIA (IDCATEGORIA,NOMBRECATEGORIA,DETALLECATEGORIA,RUTAFOTO) values ('5','Comida para Perros','Elige lo mejor para tu mascota, con las necesidades nutricionales para su bienestar, un buen alimento concentrado debe estar compuesto por proteínas.','https://i.postimg.cc/y6jtxmbX/alimento-perro.jpg');
 Insert into C##PRUEBA.CORE_CATEGORIA (IDCATEGORIA,NOMBRECATEGORIA,DETALLECATEGORIA,RUTAFOTO) values ('6','Comida para Ratas','Elige la mejor comida para tu pequeño amiguito!','https://i.postimg.cc/MHT7WPtv/image2.jpg');
+Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('0','No Aplica');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('1','Negro');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('2','Blanco');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('3','Azul');
@@ -11,7 +12,7 @@ Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('4','Rojo');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('5','Amarillo');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('6','Naranja');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('7','Rosa');
-Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('8','Verde');
+Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('8','Verde');	
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('9','Gris');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('10','Marrón');
 Insert into C##PRUEBA.CORE_COLORES (IDCOLOR,NOMBRECOLOR) values ('11','Turquesa');

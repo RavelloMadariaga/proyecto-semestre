@@ -33,20 +33,24 @@
                         </div>
                           <div class="col-lg-12">
                             <hr class="m-0 pt-2 mt-2">
-                              <p class="tag-section"><img src="{% static 'core/img/icons/barcode-scan.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> SKU: </strong><i>{{datos.producto.skuProducto}}</i></p>
-                              <p class="tag-section"><img src="{% static 'core/img/icons/barcode-scan.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Stock: </strong><i>{{datos.producto.stockProducto}}</i></p>
-                              <p class="tag-section"><img src="{% static 'core/img/icons/brush.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Color: </strong><i>{{datos.producto.colorProducto}}</i></p>
-                              {% if datos.producto.despachoDomicilio %}
-                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Despacho a domicilio: </strong><i>Disponible (1 a 3 días hábiles)</i></p>
+                              <p class="tag-section pt-2"><img src="{% static 'core/img/icons/barcode-scan.svg' %}" alt="Sku"width="22px" height="22px"/><strong> SKU: </strong><i>{{datos.producto.skuProducto}}</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/boxes.svg' %}" alt="Stock"width="22px" height="22px"/><strong> Stock: </strong><i>{{datos.producto.stockProducto}}</i></p>
+                              {% if datos.producto.colorProducto.nombreColor == 'No Aplica' %}
                               {% else %}
-                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Despacho a domicilio: </strong><i>No Disponible</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/brush.svg' %}" alt="Color"width="22px" height="22px"/><strong> Color: </strong><i>{{datos.producto.colorProducto}}</i></p>
+                              {% endif %}
+                              {% if datos.producto.despachoDomicilio %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Despacho"width="22px" height="22px"/><strong> Despacho a domicilio </strong><div class = "alert-success">Disponible (1 a 3 días hábiles)</div></p>
+                              {% else %}
+                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Despacho"width="22px" height="22px"/><strong> Despacho a domicilio </strong><div class = "alert-danger">No Disponible</div></p>
                               {% endif %}
                               {% if datos.producto.retiroTienda %}
-                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Retiro en Tienda: </strong><i>Disponible (Retira hoy)</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/box-open.svg' %}" alt="Retiro"width="22px" height="22px"/><strong> Retiro en Tienda </strong><div class = "alert-success">Disponible (Retira Hoy)</div></p>
                               {% else %}
-                              <p class="tag-section"><img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Carrito"width="22px" height="22px"/><strong> Retiro en Tienda: </strong><i>No Disponible</i></p>
+                              <p class="tag-section"><img src="{% static 'core/img/icons/box-open.svg' %}" alt="Retiro"width="22px" height="22px"/><strong> Retiro en Tienda </strong><div class = "alert-danger">No Disponible</div></p>
                               {% endif %}
                               <hr class="m-0 pt-0 mt-0">
+                              <div class="pb-2"></div>
                           </div>
   
   

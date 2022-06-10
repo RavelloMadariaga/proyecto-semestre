@@ -1,4 +1,16 @@
 {% include "./header.html" %}
+<script>
+    function noPuntoComa( event ) {
+    
+    var e = event || window.event;
+    var key = e.keyCode || e.which;
+  
+    if ( key === 110 || key === 190 || key === 188 ) {     
+        
+       e.preventDefault();     
+    }
+  }
+  </script>
 <main>
 {% load static %}
     <div class="container letra-header">
@@ -51,6 +63,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group pt-2">
+                                    <select class="custom-select" aria-label="Default select example" name="Despacho" value="3">
+                                        <option>Despacho Domicilio</option>
+                                            <option value=0>No</option>
+                                            <option value=1>Si</option>
+                                    </select>
+                                </div>
+                                <div class="form-group pt-2">
+                                    <select class="custom-select" aria-label="Default select example" name="RetiroTienda" value="2">
+                                        <option>Retiro en Tienda</option>
+                                            <option value=0>No</option>
+                                            <option value=1>Si</option>
+                                    </select>
+                                </div>
+                                <!--
+                                <div class="form-group pt-2">
                                     <label for="RetiroTienda">
                                         <input type="checkbox" name="opcionRetiro" value="RetiroTienda" id="RetiroTienda" checked> Retiro en tienda
                                     </label>
@@ -58,7 +85,7 @@
                                     <label for="Despacho">
                                         <input type="checkbox" name="opcionDespacho" value="Despacho" id="Despacho" checked> Despacho a domicilio
                                     </label>                                
-                                </div>
+                                </div>-->
                                 <div class="form-group pt-2">
                                  <button type="submit" class="btn btn-success btn-block"><div class="letra-header">guardar</div></button>
                                 </div>
@@ -76,7 +103,9 @@
                                     <th>Nombre producto</th>
                                     <th>Precio</th>
                                     <th>Stock</th>
+                                    <th>Disponible</th>
                                     <th>Categoria</th>
+                                    <th>Color</th>
                                     <th colspan="2">Opciones</th>
                                 </tr>
                             </thead>
@@ -87,9 +116,22 @@
                                         <td>{{p.nombreProducto}}</td>
                                         <td>{{p.precioProducto}}</td>
                                         <td>{{p.stockProducto}}</td>
+                                        <td>{% if p.despachoDomicilio %}
+                                            <img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Despacho"width="22px" height="22px"/>
+                                            {% else %}
+                                            <img src="{% static 'core/img/icons/exclamation-circle.svg' %}" alt="No" width="22px" height="22px"/>
+                                            {% endif %}
+                                            {% if p.retiroTienda %}
+                                            <img src="{% static 'core/img/icons/box-open.svg' %}" alt="Retiro"width="22px" height="22px"/>
+                                            {% else %}
+                                            <img src="{% static 'core/img/icons/exclamation-circle.svg' %}" alt="No" width="22px" height="22px"/>
+                                            {% endif %}
+
+                                        </td>
                                         <td>{{p.categoria}}</td>
-                                        <td><a href="edicionProducto/{{p.idProducto}}" class="btn btn-info">Editar</a></td>
-                                        <td><a href="eliminarProducto/{{p.idProducto}}" class="btn btn-danger">Eliminar</a></td>
+                                        <td>{{p.colorProducto}}</td>
+                                        <td><a href="edicionProducto/{{p.idProducto}}" class="btn btn-info"><img src="{% static 'core/img/icons/edit.svg' %}" alt="Editar"width="20px" height="20px"/></a></td>
+                                        <td><a href="eliminarProducto/{{p.idProducto}}" class="btn btn-danger"><img src="{% static 'core/img/icons/trash.svg' %}" alt="Eliminar "width="20px" height="20px"/></a></td>
                                     </tr>
                                 {% endfor%}
                             </tbody>

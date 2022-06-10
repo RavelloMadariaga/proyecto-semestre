@@ -1,0 +1,56 @@
+{% include "./header.html" %}
+<main>
+{% load static %}
+
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <div class="col-md-5 p-lg-5 mx-auto letra-header">
+      
+      <h1 class="display-4 fw-normal">Trabaja con nosotros</h1>
+      <p class="lead fw-normal">Se parte de esta vision por el amor de los animales</p>
+      <a class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#ModalPega">Unete a la familia</a>
+    </div>
+    <img src="{% static 'core/img/pega.jpg' %}" data-bs-toggle="modal" data-bs-target="#ModalPega"
+    class="card-img-top rounded-start" alt="..." style="width: auto; height: auto;">
+  </div>
+
+    
+<!-- Inicio Modal 1-->
+<div class="modal fade" id="ModalPega" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Postula Aquí</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{% static 'core/img/pega.jpg' %}" class="img-fluid rounded-start" style="align-self: flex-start;">
+            <form>
+              <input type="text" class="form-control mt-3" placeholder="Nombre Completo">
+              <input type="text" class="form-control mt-3" placeholder="Número">
+              <input type="text" class="form-control mt-3" placeholder="Correo">
+              <button type="button" class="btn btn-secondary mt-3 mb-3 text-center">CV</button>
+            </form>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#respuesta">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <!--Footer-->
+  {% include "./footer.html" %}
+        
+</main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

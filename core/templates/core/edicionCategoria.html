@@ -2,15 +2,15 @@
 <main>
 {% load static %}
     <div class="container">
-        <div class="col-md-4 offset-md-4">
-            <h2>Edicion Categoria</h2>
-            <div class="card">
+        <div class="col-md-4 offset-md-4 letra-header pb-5 pt-5">
+            <h2 class="pb-1">Edicion Categoria</h2>
+            <div class="card pt-2">
                 <div class="card-body">
                     <form action="/mascotasadmin/editarCategoria/" method="POST">{% csrf_token %}
-                        <div class="form-group">
+                        <div class="form-group pb-2">
                             <input type="text" id="idCategoria" name="idCategoria" value="{{datos.categoria.idCategoria}}" class="form-control"  maxlength="20" readonly >
                         </div>
-                        <div class="form-group">
+                        <div class="form-group pb-2">
                             <input type="text" id="txtNombre" name="txtNombre" value="{{datos.categoria.nombreCategoria}}" class="form-control"  maxlength="20" required>
                         </div>
                         <div class="form-group">

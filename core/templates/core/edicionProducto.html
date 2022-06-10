@@ -37,10 +37,11 @@
                         <div class="form-group pt-2">
                             <select class="custom-select" aria-label="Default select example" name="idColor" value="1">
                                 <option selected>Seleccione Color</option>
-                                {% for color in datos.colorLista %}
-                                    <option value={{color.idColor}} {% if color.idColor is datos.producto.color.idColor %} selected {% endif %}> {{color.nombreColor}}</option>
+                                {% for co in datos.colorLista %}
+                                    <option value={{co.idColor}} {% if co.idColor is datos.producto.colorProducto.idColor %} selected {% endif %}> {{co.nombreColor}}</option>
                                 {% endfor %}
                             </select><!--59:41-->
+
                         </div>
                         <div class="form-group pt-2">
                             <select class="custom-select" aria-label="Default select example" name="idCategoria" value="1">
@@ -51,14 +52,32 @@
                             </select><!--59:41-->
                         </div>
                         <div class="form-group pt-2">
+                            <select class="custom-select" aria-label="Default select example" name="Despacho" value="3">
+                                <option>Despacho Domicilio</option>
+                                    <option value=0 {% if datos.producto.despachoDomicilio is False %} selected {% endif %}>No</option>
+                                    <option value=1 {% if datos.producto.despachoDomicilio is True %} selected {% endif %}>Si</option>
+                            </select>
+                        </div>
+                        <div class="form-group pt-2">
+                            <select class="custom-select" aria-label="Default select example" name="RetiroTienda" value="2">
+                                <option>Retiro en Tienda</option>
+                                    <option value=0 {% if datos.producto.retiroTienda is False %} selected {% endif %}>No</option>
+                                    <option value=1 {% if datos.producto.retiroTienda is True %} selected {% endif %}>Si</option>
+                            </select>
+                        </div>
+                        
+                        <!--
+                        <div class="form-group pt-2">
+                            
                             <label for="RetiroTienda">
-                                <input type="checkbox" name="opcionRetiro" value="RetiroTienda" id="RetiroTienda" checked> Retiro en tienda
+
+                                <input type="checkbox" name="opcionRetiro" value="RetiroTienda" id="RetiroTienda" {% if datos.producto.retiroTienda is True %} checked {% endif %}> Retiro en tienda
                             </label>
                             <div class="pt-2 pb-2"></div>
                             <label for="Despacho">
-                                <input type="checkbox" name="opcionDespacho" value="Despacho" id="Despacho" checked> Despacho a domicilio
+                                <input type="checkbox" name="opcionDespacho" value="Despacho" id="Despacho" {% if datos.producto.despachoDomicilio is True %} checked {% endif %}> Despacho a domicilio 
                             </label>                                
-                        </div>
+                        </div>-->
                         <div class="form-group pt-2">
                          <button type="submit" class="btn btn-success btn-block"><div class="letra-header">guardar</div></button>
                         </div>
