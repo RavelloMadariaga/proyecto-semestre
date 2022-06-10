@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, listadoproductos, logeo, mantenedor, productos
+from .views import *
 #from Mascotas.core import views
 from . import views
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('mascotasadmin/eliminarCategoria/<idCategoria>', views.eliminarCategoria),
     path('mascotasadmin/edicionCategoria/<idCategoria>', views.edicionCategoria),
     path('mascotasadmin/editarCategoria/',views.editarCategoria),
+    path('postular/',views.Postular),
     path('productos',views.productos),
     path('categorias',views.categorias),
     path('producto/<idProducto>',views.producto),
@@ -24,4 +25,7 @@ urlpatterns = [
     path('check-out',views.checkout),
     path('fin-compra',views.fincompra),
     path('workwithus',views.workwithus),
+    path('terminos',views.terminos),
+    path('postulacion-exitosa',views.postulacionexitosa),
+    
 ]

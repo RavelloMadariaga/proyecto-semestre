@@ -16,26 +16,26 @@
     
 <!-- Inicio Modal 1-->
 <div class="modal fade" id="ModalPega" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered modal-lg text-center">
+    <div class="modal-content ">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Postula Aquí</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body ">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <img src="{% static 'core/img/pega.jpg' %}" class="img-fluid rounded-start" style="align-self: flex-start;">
-            <form>
-              <input type="text" class="form-control mt-3" placeholder="Nombre Completo">
-              <input type="text" class="form-control mt-3" placeholder="Número">
-              <input type="text" class="form-control mt-3" placeholder="Correo">
-              <button type="button" class="btn btn-secondary mt-3 mb-3 text-center">CV</button>
+            <form action="/postular/" method="POST">{% csrf_token %}
+              <input type="text" id="txtNombre" name="txtNombre" class="form-control mt-3" placeholder="Nombre Completo">
+              <input type="text" id="txtNumero" name="txtNumero" class="form-control mt-3" placeholder="Número">
+              <input type="text" id="txtCorreo" name="txtCorreo" class="form-control mt-3" placeholder="Correo">
+              <input type="text" id="txtAbout" name="txtAbout" class="form-control mt-3" placeholder="About">
+              <button type="submit" class="btn btn-success btn-block mt-3 mb-2">Postular</button>
             </form>
           </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#respuesta">Enviar</button>
       </div>
     </div>
   </div>

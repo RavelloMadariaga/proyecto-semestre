@@ -11,8 +11,10 @@
                         <tr>
                             <td><img src="{{p.imgProducto}}" alt="" width="150px" height="150px"></td>
                             <td><h3>{{p.nombreProducto}} <br> ${{p.precioProducto}} </h3><br> {{p.microdetalleProducto}}</td>
-                           
-                            <td><a href="producto/{{p.idProducto}}" class="btn btn-info">Ver Producto</a></td>
+                            <td><a href="producto/{{p.idProducto}}" class="btn btn-info">Ver Producto</a><br>
+                            {% if p.despachoDomicilio is True %} <img src="{% static 'core/img/icons/truck-arrow-right.svg' %}" alt="Despacho" width="20px" height="20px"/> {% endif %}
+                            {% if p.retiroTienda is True %} <img src="{% static 'core/img/icons/box-open.svg' %}" alt="Retiro" width="20px" height="20px"/> {% endif %}
+                            </td>
                         </tr>
                     {% endfor%}
                 </tbody>

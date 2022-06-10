@@ -2,7 +2,7 @@ from asyncio.windows_events import NULL
 import re
 from django.shortcuts import render, redirect
 import pyparsing
-from .models import Colores, Producto, Categoria
+from .models import Colores, Producto, Categoria, Postulacion
 from django.db.models import Sum
 import django_filters
 
@@ -34,6 +34,22 @@ def mantenedor(request):
     }
 
     return render(request, 'core/mantenedorProductos.html', {"datos":datos})
+
+def Postular(request):
+    data = request.POST
+    nombrePostulante=data['txtNombre']
+    numeroPostulante=data['txtNumero']
+    correoPostulante=data['txtCorreo']
+    aboutPostulante=data['txtAbout']
+
+    postula = Postulacion.objects.create(
+        nombre=nombrePostulante,
+        numero=numeroPostulante,
+        correo=correoPostulante,
+        about=aboutPostulante,
+    )
+
+    return redirect('/postulacion-exitosa')
 
 def registrarProducto(request):
     optTiendaDomicilio = ''
@@ -244,6 +260,12 @@ def checkout(request):
 def fincompra(request):
     return render(request,'core/finalizado.html')
 
+def terminos(request):
+    return render(request,'core/terminos.html')
+
+def postulacionexitosa(request):
+    return render(request,'core/postulacion-exitosa.html')
+
 def workwithus(request):
     return render(request,'core/workwithus.html')
 
@@ -251,5 +273,6 @@ def paneladmin(request):
     productos = Producto.objects.all()
     categorias = Categoria.objects.all()
     colores = Colores.objects.all()
+    postulacion = Postulacion.objects.all()
     
-    return render(request,'core/admin/index.html', {'productos': productos,'categorias': categorias,'colores': colores})
+    return render(request,'core/admin/index.html', {'productos': productos,'categorias': categorias,'colores': colores,'postulacion': postulacion})

@@ -18,6 +18,16 @@ class Colores(models.Model):
     def __str__(self):
         return self.nombreColor
 
+class Postulacion(models.Model):
+    idPostulacion = models.AutoField(primary_key=True, verbose_name='ID Postulacion')
+    nombre = models.CharField(max_length=300,verbose_name="Nombre Postulacion")
+    numero = models.CharField(max_length=15,verbose_name="Numero")
+    correo = models.CharField(max_length=300,verbose_name="Correo")
+    about = models.CharField(max_length=300,verbose_name="About")
+
+    def __str__(self):
+        return self.idPostulacion
+
 #Modelo para Productos
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True,verbose_name="ID Produto")
