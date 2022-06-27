@@ -5,16 +5,18 @@ import pyparsing
 from .models import Colores, Producto, Categoria, Postulacion
 from django.db.models import Sum
 import django_filters
+from .forms import *
+
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'core/home.html')
+    return render(request, 'core/home.html',{'nbar':'inicio'})
 
 def listadoproductos(request):
 
     productos = Producto.objects.all()
-
+    
     datos = {
         'productos': productos
     }
@@ -224,35 +226,43 @@ def editarCategoria(request):
 
 def productos(request):
     categoriaLista = Categoria.objects.all()
+    nbar = ''
 
     CATID = request.GET.get('categoria')
     if CATID:
         productosListados = Producto.objects.filter(categoria=CATID)
+        nbar = 'categorias'
     else:
         productosListados = Producto.objects.all() 
+        nbar = 'productos'
+
+    
 
     datos = {
         'productos': productosListados, 
-        'categorias': categoriaLista
+        'categorias': categoriaLista,
     }
 
-    return render(request, 'core/productos.html', {"datos":datos})
+    return render(request, 'core/productos.html', {"datos":datos,'nbar':nbar})
 
 def categorias(request):
     categoriaLista = Categoria.objects.all()
-    return render(request, 'core/categorias.html', {'categorias':categoriaLista})
+    return render(request, 'core/categorias.html', {'categorias':categoriaLista,'nbar':'categorias'})
 
 def producto(request, idProducto):
     producto = Producto.objects.get(idProducto=idProducto)
     datos = {'producto' : producto}
-    return render(request, "core/producto.html", {"datos":datos})
+    return render(request, "core/producto.html", {"datos":datos,'nbar':'productos'})
 
 def categoria(request, cat_id):
     datos = Producto.objects.filter(categoria=cat_id)
     return render(request, "core/categoria.html", {"datos":datos})
 
 def logeo(request):
-    return render(request,'core/sing-up.html')
+    if request.user.is_authenticated:
+        return redirect('../')
+    else:
+        return render(request,'core/sing-up.html')  
 
 def checkout(request):
     return render(request,'core/check-out.html')
@@ -269,6 +279,20 @@ def postulacionexitosa(request):
 def workwithus(request):
     return render(request,'core/workwithus.html')
 
+def registro(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            # messages.success(request, f'Usuario {username} creado.')
+            return redirect('../login/')
+    else:
+            form = UserRegisterForm()
+        
+    data = {'form': form}
+    return render(request,"core/registro.html", data)
+
 def paneladmin(request):
     productos = Producto.objects.all()
     categorias = Categoria.objects.all()
@@ -276,3 +300,6 @@ def paneladmin(request):
     postulacion = Postulacion.objects.all()
     
     return render(request,'core/admin/index.html', {'productos': productos,'categorias': categorias,'colores': colores,'postulacion': postulacion})
+
+def paneluser(request):
+    return render(request,'core/admin/userpanel.html')

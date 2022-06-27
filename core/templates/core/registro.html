@@ -1,0 +1,83 @@
+{% include "core/header.html" %}
+<style>
+.form-signin {
+   width: 100%;
+   max-width: 330px;
+   padding: 15px;
+   margin: auto;
+ }
+ 
+ .form-signin .checkbox {
+   font-weight: 400;
+ }
+ 
+ .form-signin .form-floating:focus-within {
+   z-index: 2;
+ }
+ 
+ .form-signin input[type="email"] {
+   margin-bottom: -1px;
+   border-bottom-right-radius: 0;
+   border-bottom-left-radius: 0;
+ }
+ 
+ .form-signin input[type="password"] {
+   margin-bottom: 10px;
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+ }
+ 
+ .login,
+ .image{min-height: 100vh}
+ .bg-image{
+ background-image: url('https://www.marthadebayle.com/wp-content/uploads/2021/07/Dia-mundial-del-perro.jpg');
+ background-size: cover;
+ background-position: center;
+ }
+</style>
+ 
+
+<main>
+  <body class="text-center fondo-productos">
+    
+    <main class="fondo-paginas">
+      <!--formulario-->
+      {% load static %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+       <div class="col-md-6 d-none d-md-flex bg-image"></div>
+       <div class="col-md-6 bg-light">
+          <div class="login d-flex align-items-center py-5">
+             <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-xl-6 mx-auto">
+                        <div class="col-md-12 bg-light py-5"></div>
+                        <h5 class="display-4 letra-productos">Ingresa tus datos y crea tu cuenta</span></h3>
+                        <br> 
+
+                        <form method="post">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+                        <button type="submit" id="submit">Registrarse</button>
+
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</main>
+
+    
+    
+        
+      </body>
+
+{% include "core/footer.html" %}
+      
+
+      
+  </body>
+</html>

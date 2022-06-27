@@ -1,5 +1,3 @@
-
-
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -26,3 +24,12 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.login,
+.image{min-height: 100vh}
+.bg-image{
+background-image: url('https://michellehotpropiedades.cl/assets/img/slider/slide03.jpg');
+background-size: cover;
+background-position: center;
+}
+
