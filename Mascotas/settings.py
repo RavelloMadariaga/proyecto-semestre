@@ -37,12 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'core',
-    'rest_producto',
-    'rest_framework.authtoken',
     'django.contrib.humanize',
     'django_filters',
+    'rest_producto',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +80,8 @@ WSGI_APPLICATION = 'Mascotas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mascotas.db',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '127.0.0.1:1521/xe',
         'USER': 'c##prueba2',
         'PASSWORD': 'prueba',
     }
@@ -142,9 +141,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/mi_cuenta/panel'
-
-REST_FRAMEWORJ = {
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.TokenAuthentication',
-    ]
-}

@@ -2,9 +2,9 @@ from rest_framework import serializers
 from core.models import Producto
 
 
-class ProductoSerializer(serializers.ModelsSerielizer):
+class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields=['','','','']#aniadir productos
+        fields=['producto','','','']#aniadir productos
 
 

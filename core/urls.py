@@ -1,4 +1,4 @@
-from django.urls import path, include 
+from django.urls import path
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import *
@@ -39,7 +39,5 @@ urlpatterns = [
     path('registro/',views.registro),
     path('mi_cuenta/panel',views.paneluser),
 
-   path('lista_productos', lista_producto, name='lista_productos'),
+    
 ]
-
-

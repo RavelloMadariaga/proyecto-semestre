@@ -15,16 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Mascotas import views
-from Mascotas.viewslogin import login
-from core.views import lista_producto
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('/', include('rest_productos')),
-    path('lista_productos',views.lista_producto,name="lista_productos"),
-    path('detalle_producto/‹id›',views.detalle_producto,name="detalle_producto"),
-    path('login', login, name="login"),
-    ]
+    path('api/',include('rest_producto.urls'))
+]
